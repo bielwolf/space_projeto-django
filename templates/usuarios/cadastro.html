@@ -46,7 +46,8 @@
                         Login</a>
                     <a href="{% url 'cadastro' %}"><img src="{% static '/assets/ícones/1x/Novas - inativo.png' %}">
                         Cadastrar</a>
-                    <a href="{% url 'logout' %}"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Logout</a>
+                    <a href="{% url 'logout' %}"><img
+                            src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Logout</a>
                 </nav>
             </section>
             <section class="galeria" style="margin-left: 5em">
@@ -59,6 +60,11 @@
                                 style="color:#D9D9D9; margin-bottom: 5px;">{{field.label}}</label>
                             {{field}}
                         </div>
+                        {% for error in field.errors %}
+                        <div class="alert alert-danger col-12 col-lg-12" role="alert">
+                            {{ error }}
+                        </div>
+                        {% endfor %}
                         {% endfor %}
                     </div>
                     <div>
